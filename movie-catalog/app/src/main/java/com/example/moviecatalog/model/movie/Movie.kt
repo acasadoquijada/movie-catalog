@@ -12,6 +12,4 @@ class Movie : VisualEntertainment() {
 
     @SerializedName("title")
     override var name: String = ""
-    @SerializedName("backdrop_path")
-    override var posterPath: String = ""
 }

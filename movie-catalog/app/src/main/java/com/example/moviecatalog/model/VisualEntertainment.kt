@@ -1,18 +1,22 @@
 package com.example.moviecatalog.model
 
+import com.google.gson.annotations.SerializedName
+
 /*
 Parent class for Movie and TVShow. It holds the common fields and methods for both of them
  */
 open class VisualEntertainment {
 
-    var id: Int = -1
+    var id: Long = -1L
     open var name: String = ""
-    open var posterPath: String = ""
-    var voteAverage: Double = -1.0
-    var overview: String = ""
+    @SerializedName("poster_path")
+    open var posterPath: String? = ""
+    @SerializedName("vote_average")
+    var voteAverage: Double? = -1.0
+    var overview: String? = ""
 
     fun isEmpty(): Boolean {
-        return id == -1 && name.isEmpty() && posterPath.isEmpty() && voteAverage == -1.0 && overview.isEmpty()
+        return id == -1L || name.isEmpty()
     }
 
     override fun toString(): String {

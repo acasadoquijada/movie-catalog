@@ -44,17 +44,16 @@ class ModelUnitTest {
 
     @Test
     fun visualEntertainmentIsEmpty_Returns_Empty_When_Expected() {
+
+        visualEntertainment.name = "fake name"
         assert(visualEntertainment.isEmpty())
     }
 
     @Test
     fun visualEntertainmentIsEmpty_Returns_NotEmpty_When_Expected() {
 
-        visualEntertainment.id = 1132
+        visualEntertainment.id = 12
         visualEntertainment.name = "fake name"
-        visualEntertainment.overview = "fake overview"
-        visualEntertainment.posterPath = "fake poster_path"
-        visualEntertainment.voteAverage = 2.0
 
         assert(!visualEntertainment.isEmpty())
     }
