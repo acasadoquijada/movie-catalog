@@ -11,8 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MainController {
 
-    private val BASE_URL = "https://api.themoviedb.org/3/"
-    private val API_KEY = "a645b5803140e9f1bda613760dda6057" // This is the API from themovie.org
+    private val baseUrl = "https://api.themoviedb.org/3/"
+    private val apiKey = "a645b5803140e9f1bda613760dda6057" // This is the API from themovie.org
 
     private lateinit var retrofit: Retrofit
     private lateinit var api: API
@@ -23,7 +23,7 @@ class MainController {
     }
 
     private fun createRetrofit(gson: Gson) {
-        retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create(gson)).build()
+        retrofit = Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create(gson)).build()
     }
 
     private fun createGson(): Gson {
@@ -35,18 +35,18 @@ class MainController {
     }
 
     fun searchTVShow(name: String): Call<TVShowList> {
-        return api.searchTVShow(API_KEY, name)
+        return api.searchTVShow(apiKey, name)
     }
 
     fun getTVShows(): Call<TVShowList> {
-        return api.getTVShows(API_KEY)
+        return api.getTVShows(apiKey)
     }
 
     fun searchMovie(name: String): Call<MovieList> {
-        return api.searchMovie(API_KEY, name)
+        return api.searchMovie(apiKey, name)
     }
 
     fun getMovies(): Call<MovieList> {
-        return api.getMovies(API_KEY)
+        return api.getMovies(apiKey)
     }
 }
