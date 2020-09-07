@@ -22,7 +22,7 @@ File > New > Import Project
 Check for the API Key (v3 auth)
 ```
 
-4 - Once we have an API Key, set it in [retrofit.MainController line 13]()
+4 - Once we have an API Key, set it in [retrofit.MainController line 13](https://bitbucket.org/acasadoquijada/movie-catalog/src/b6edb66a806bb12ee4bb6642103b326192d9034f/movie-catalog/app/src/main/java/com/example/moviecatalog/retrofit/MainController.kt#lines-13)
 . During the development of the app an API key as uploaded by mistake. This key has been revoked before making the repository public.
 
 ```
@@ -58,11 +58,16 @@ To check the code style the following tools have been used:
 The greatest problem I found was while integrating Room into the picture. I had almost everything working, but due to a "wrong" design decisision the toggle button of the elements in the watchList wasn't updated correctly. Because of that, I had to performed a different approach.
 
 With more time, I would like to:
+
 * Improve the UI (how the tv/cinema logo is shown), add support for large devices (tablets)
+  
 * Improve user experience (not possible to rotate phone in the middle of a search)
+  
 * Increase the code coverage
+  
 * Improve the UI package class structure (a superclass could be defined with common methods)
-* Use styles for common elements in the layouts,
+  
+* Use styles for common elements in the layouts
 
 ## External resources
 
