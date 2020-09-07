@@ -8,6 +8,12 @@ import java.util.concurrent.TimeoutException
 
 /* Copyright 2019 Google LLC.
    SPDX-License-Identifier: Apache-2.0 */
+
+/**
+ * Code obtained from this tutorial:
+ * https://medium.com/androiddevelopers/unit-testing-livedata-and-other-common-observability-problems-bb477262eb04
+ */
+
 fun <T> LiveData<T>.getOrAwaitValue(
     time: Long = 2,
     timeUnit: TimeUnit = TimeUnit.SECONDS

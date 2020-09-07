@@ -8,14 +8,12 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 import retrofit2.Response
 
-/*
-We test the different retrofit calls.
-The testing consists in checking that the call are actually successful and that its content is
-not empty.
-
-With more time, the call to fail() could be improved to a method wrapping fail() which would make
-the code cleaner
+/**
+ * We test the different retrofit calls.
+ * The testing consists in checking that the call are actually successful and that its content is not empty.
+ * With more time, the call to fail() could be improved to a method wrapping fail() which would make the code cleaner
  */
+
 @RunWith(JUnit4::class)
 class RetrofitUnitTest {
 

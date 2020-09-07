@@ -26,7 +26,7 @@ class DetailFragment : Fragment() {
     ): View? {
 
         setupDataBinding(inflater, container)
-
+        setupListener()
         return getRoot()
     }
 
@@ -50,7 +50,6 @@ class DetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupViewModel()
-        setupListener()
     }
 
     private fun setupViewModel() {
@@ -96,7 +95,7 @@ class DetailFragment : Fragment() {
 
     private fun setToggleButtonClickStatus(status: Boolean?) {
         status?.let {
-            binding.posterDetails.toggleButton.isChecked = status
+            binding.posterDetails.toggleButton.isChecked = it
         }
     }
 }

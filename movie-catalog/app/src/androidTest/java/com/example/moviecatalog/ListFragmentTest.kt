@@ -18,7 +18,6 @@ import androidx.test.ext.junit.rules.activityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.moviecatalog.adapter.ElementAdapter
 import com.example.moviecatalog.ui.ListFragment
-import org.hamcrest.Matchers
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -31,40 +30,21 @@ class ListFragmentTest {
 
     @Test
     fun infoIsShownCorrectly() {
-        checkTextIsNotEmpty(R.id.movieLabel)
-        checkTextIsNotEmpty(R.id.tvShowLabel)
-        checkRecyclerViewHasDescendant(R.id.movieRecyclerView)
-        checkRecyclerViewHasDescendant(R.id.tvShowRecyclerView)
-    }
-
-    private fun checkTextIsNotEmpty(id: Int) {
-        onView(withId(id)).check(
-            matches(
-                Matchers.not(
-                    withText("")
-                )
-            )
-        )
-    }
-
-    private fun checkRecyclerViewHasDescendant(recyclerView: Int) {
-        onView(withId(recyclerView)).perform(RecyclerViewActions.scrollToPosition<ElementAdapter.ElementHolder>(0)).check(
-            matches(
-                hasDescendant(
-                    withId(R.id.image)
-                )
-            )
-        )
+        checkText(R.id.leftRecyclerViewLabel, "Movies/TV Shows")
+        checkText(R.id.rightRecyclerViewLabel, "Watch list")
     }
 
     @Test
     fun searchShowsCorrectInfo() {
         onView(withId(R.id.action_search)).perform(click())
         onView(isAssignableFrom(AutoCompleteTextView::class.java))
-            .perform(typeText("something"))
+            .perform(typeText("raven"))
 
-        checkRecyclerViewHasDescendant(R.id.movieRecyclerView)
-        checkRecyclerViewHasDescendant(R.id.tvShowRecyclerView)
+        checkText(R.id.leftRecyclerViewLabel, "Movies")
+        checkText(R.id.rightRecyclerViewLabel, "TV Shows")
+
+        checkRecyclerViewHasDescendant(R.id.leftRecyclerView)
+        checkRecyclerViewHasDescendant(R.id.rightRecyclerView)
     }
 
     @Test
@@ -82,10 +62,27 @@ class ListFragmentTest {
         titleScenario.onFragment { fragment ->
             Navigation.setViewNavController(fragment.requireView(), navController)
         }
-
         // Verify that performing a click changes the NavController’s state
-        onView(withId(R.id.movieRecyclerView)).perform(RecyclerViewActions.scrollToPosition<ElementAdapter.ElementHolder>(0)).perform(click())
+        onView(withId(R.id.leftRecyclerView)).perform(RecyclerViewActions.scrollToPosition<ElementAdapter.ElementHolder>(0)).perform(click())
 
         assert(navController.currentDestination?.id == R.id.detailFragment)
+    }
+
+    private fun checkText(id: Int, expectedText: String) {
+        onView(withId(id)).check(
+            matches(
+                withText(expectedText)
+            )
+        )
+    }
+
+    private fun checkRecyclerViewHasDescendant(recyclerView: Int) {
+        onView(withId(recyclerView)).perform(RecyclerViewActions.scrollToPosition<ElementAdapter.ElementHolder>(0)).check(
+            matches(
+                hasDescendant(
+                    withId(R.id.image)
+                )
+            )
+        )
     }
 }

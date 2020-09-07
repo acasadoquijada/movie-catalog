@@ -1,45 +1,72 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Movie Catalog
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+## Setup instructions
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+In order to compile and install the application in a emulated or physical you need to do as follows:
 
----
+1 - Clone the this repository
 
-## Edit a file
+```
+git clone https://acasadoquijada@bitbucket.org/acasadoquijada/movie-catalog.git
+```
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+2 - Open the project using Android Studio
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+```
+File > New > Import Project 
+```
 
----
+3 - Obtain an API key from themoviedb.org. Please see this [link](https://www.themoviedb.org/documentation/api)
 
-## Create a file
+```
+Check for the API Key (v3 auth)
+```
 
-Next, you’ll add a new file to this repository.
+4 - Once we have an API Key, set it in [retrofit.MainController line 13]()
+. During the development of the app an API key as uploaded by mistake. This key has been revoked before making the repository public.
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+```
+private val apiKey = "your api key"
+```
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+5 - Select your device (virtual or pyhsical)
 
----
+6 - Click on ***Run 'app'***. 
 
-## Clone a repository
+7 - Now you should be able to use the application
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+## Style checking
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+To check the code style the following tools have been used:
+
+* [ktlin](https://ktlint.github.io/) by using [Ktlint Gradle](https://github.com/jlleitschuh/ktlint-gradle#main-tasks)
+  * ktlintCheck and ktlintFormat taks have been runned
+* [Lint Android Studio](https://developer.android.com/studio/write/lint)
+  * All the relevant warning have been avoided with this tool 
+
+## Libraries used
+
+* [Retrofit](https://square.github.io/retrofit/) needed to perform the API calls to themoviedb.org in order to get the Movie/TV Show information
+* [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started) to perform the navigation between the fragments
+* [Picasso](https://square.github.io/picasso/) to set the poster of the Movies/TV Shows into ImageViews
+* [Room](https://developer.android.com/topic/libraries/architecture/room) to store the watchlist information in the device
+
+
+## Problems found during development and future work
+
+The greatest problem I found was while integrating Room into the picture. I had almost everything working, but due to a "wrong" design decisision the toggle button of the elements in the watchList wasn't updated correctly. Because of that, I had to performed a different approach.
+
+With more time, I would like to:
+* Improve the UI (how the tv/cinema logo is shown), add support for large devices (tablets)
+* Improve user experience (not possible to rotate phone in the middle of a search)
+* Increase the code coverage
+* Improve the UI package class structure (a superclass could be defined with common methods)
+* Use styles for common elements in the layouts,
+
+## External resources
+
+* **ic_heart** made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+
+* **ic_television**  made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+* **ic_cinema** made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

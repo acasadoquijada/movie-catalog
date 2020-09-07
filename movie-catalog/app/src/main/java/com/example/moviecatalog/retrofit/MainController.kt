@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainController {
 
     private val baseUrl = "https://api.themoviedb.org/3/"
-    private val apiKey = "a645b5803140e9f1bda613760dda6057" // This is the API from themovie.org
+    private val apiKey = "" // This is the API from themovie.org
 
     private lateinit var retrofit: Retrofit
     private lateinit var api: API

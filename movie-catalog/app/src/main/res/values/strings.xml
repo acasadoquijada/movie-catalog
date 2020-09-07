@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">Movie Catalog</string>
-    <string name="contentDescriptionImagePoster">This image is the poster of the movie</string>
     <string name="moviesLabel">Movies</string>
-    <string name="tvShowsLabel">TV Shows</string>
-    <string name="topRatedElementLabel">Top rated</string>
     <string name="watchListLabel">Watch list</string>
+    <string name="tvShowsLabel">TV Shows</string>
+    <string name="moviesAndTVShowsLabel">Movies/TV Shows</string>
+    <string name="imagePosterContentDescription">This image is the poster of the movie</string>
+    <string name="backgroundImageContentDescription">White imageView use to better see the type logo</string>
+    <string name="typeLogoContentDescription">Logo that represents the type of the element, if its a movie or a tv show</string>
 </resources>

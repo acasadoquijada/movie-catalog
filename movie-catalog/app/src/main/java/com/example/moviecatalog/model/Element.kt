@@ -1,5 +1,7 @@
 package com.example.moviecatalog.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -14,8 +16,10 @@ import com.google.gson.annotations.SerializedName
  *
  * By doing so, we can use the same class to represent a Movie and a TVShow
  */
+@Entity(tableName = "watch_list")
 class Element {
 
+    @PrimaryKey(autoGenerate = false)
     var id: Long = -1L
     @SerializedName("name", alternate = ["title"])
     var name: String = ""
@@ -25,6 +29,7 @@ class Element {
     var voteAverage: String? = ""
     var overview: String? = ""
     var watchList: Boolean = false
+    var type: String = ""
 
     /**
      * Design decision, we consider a element empty if its ID or name is empty. With more time and a

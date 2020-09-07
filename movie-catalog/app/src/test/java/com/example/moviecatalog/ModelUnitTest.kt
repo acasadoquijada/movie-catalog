@@ -6,20 +6,17 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
-/*
-In this test we want to ensure the getPosterPath() method returns an actual URL.
-
-The poster_path url is formed by three parts:
-
-* base_url -> Same for all the TVShows/Movies = "https://image.tmdb.org/t/p/"
-* size -> this is hardcoded as we want always the same size
-* poster_path -> this part is filled when the Movie/TVShow is obtained. In RetrofitUnitTest
-we ensure this field is not empty
-
-That explained and for simplicity, we are going to check that the returned string contains the
-base_url.
-
-This test would be improved having more development time
+/**
+ * In this test we want to ensure the getPosterPath() method returns an actual URL.
+ * The poster_path url is formed by three parts:
+ *      - base_url -> Same for all the TVShows/Movies = "https://image.tmdb.org/t/p/"
+ *      - size -> this is hardcoded as we want always the same size
+ *      -  poster_path -> this part is filled when the Movie/TVShow is obtained. In RetrofitUnitTest
+ *      we ensure this field is not empty
+ *
+ *      That explained and for simplicity, we are going to check that the returned string contains the
+ *      base_url. This test would be improved having more development time
+ *
  */
 
 @RunWith(JUnit4::class)

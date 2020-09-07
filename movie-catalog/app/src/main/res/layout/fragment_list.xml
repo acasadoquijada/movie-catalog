@@ -9,14 +9,14 @@
     tools:context=".ui.ListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movieRecyclerView"
+        android:id="@+id/leftRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movieLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/leftRecyclerViewLabel" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -26,21 +26,21 @@
         app:layout_constraintGuide_begin="201dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tvShowRecyclerView"
+        android:id="@+id/rightRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/movieRecyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/tvShowLabel" />
+        app:layout_constraintStart_toEndOf="@+id/leftRecyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/rightRecyclerViewLabel" />
 
     <TextView
-        android:id="@+id/movieLabel"
+        android:id="@+id/leftRecyclerViewLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/moviesLabel"
+        android:text="@string/moviesAndTVShowsLabel"
         android:textStyle="bold"
         android:textSize="22sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -48,11 +48,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvShowLabel"
+        android:id="@+id/rightRecyclerViewLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/tvShowsLabel"
+        android:text="@string/watchListLabel"
         android:textStyle="bold"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"

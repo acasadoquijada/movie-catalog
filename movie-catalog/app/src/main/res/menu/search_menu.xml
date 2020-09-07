@@ -10,12 +10,4 @@
         android:actionViewClass="android.widget.SearchView"
         app:actionViewClass="android.widget.SearchView"
         tools:ignore="AppCompatResource" />
-    <item android:id="@+id/action_get_top_rated_elements"
-        android:title="@string/topRatedElementLabel"
-        app:showAsAction="never"
-        app:actionViewClass="android.widget.SearchView" />
-    <item android:id="@+id/action_get_watch_list"
-        android:title="@string/watchListLabel"
-        app:showAsAction="never"
-        app:actionViewClass="android.widget.SearchView" />
 </menu>
