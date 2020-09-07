@@ -29,7 +29,7 @@ Check for the API Key (v3 auth)
 private val apiKey = "your api key"
 ```
 
-5 - Select your device (virtual or pyhsical)
+5 - Select your device (virtual or physical)
 
 6 - Click on ***Run 'app'***. 
 
@@ -41,9 +41,9 @@ private val apiKey = "your api key"
 To check the code style the following tools have been used:
 
 * [ktlin](https://ktlint.github.io/) by using [Ktlint Gradle](https://github.com/jlleitschuh/ktlint-gradle#main-tasks)
-  * ktlintCheck and ktlintFormat taks have been runned
+    * ktlintCheck and ktlintFormat taks have been runned
 * [Lint Android Studio](https://developer.android.com/studio/write/lint)
-  * All the relevant warning have been avoided with this tool 
+    * All the relevant warning have been avoided with this tool 
 
 ## Libraries used
 
@@ -55,13 +55,13 @@ To check the code style the following tools have been used:
 
 ## Problems found during development and future work
 
-The greatest problem I found was while integrating Room into the picture. I had almost everything working, but due to a "wrong" design decisision the toggle button of the elements in the watchList wasn't updated correctly. Because of that, I had to performed a different approach.
+The greatest problem I found was while integrating Room into the picture. I had almost everything working, but due to a "wrong" design decision, the toggle button of the elements in the watchList wasn't updated correctly. Because of that, I had to perform a different approach.
 
 With more time, I would like to:
 
 * Improve the UI (how the tv/cinema logo is shown), add support for large devices (tablets)
   
-* Improve user experience (not possible to rotate phone in the middle of a search)
+* Improve user experience (not possible to rotate the phone in the middle of a search)
   
 * Increase the code coverage
   
@@ -71,7 +71,8 @@ With more time, I would like to:
 
 ## External resources
 
-* **ic_heart** made by <a href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+* **ic_heart** made by [kiranshastry](https://www.flaticon.com/authors/kiranshastry) from [Flaticon](https://www.flaticon.com/)
 
-* **ic_television**  made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-* **ic_cinema** made by <a href="https://www.flaticon.com/authors/monkik" title="monkik">monkik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+* **ic_television** made by [Freepik](https://www.flaticon.com/authors/kirfreepikanshastry) from [Flaticon](https://www.flaticon.com/)
+ 
+* **ic_cinema** made by [monkik](https://www.flaticon.com/authors/monkik) from [Flaticon](https://www.flaticon.com/)
