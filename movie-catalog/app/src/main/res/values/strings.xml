@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Movie Catalog</string>
+    <string name="contentDescriptionImagePoster">This image is the poster of the movie</string>
+    <string name="moviesLabel">Movies</string>
+    <string name="tvShowsLabel">TV Shows</string>
+    <string name="topRatedElementLabel">Top rated</string>
+    <string name="watchListLabel">Watch list</string>
 </resources>

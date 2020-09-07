@@ -1,78 +1,81 @@
 package com.example.moviecatalog.repository
 
 import androidx.lifecycle.MutableLiveData
-import com.example.moviecatalog.model.movie.Movie
-import com.example.moviecatalog.model.movie.MovieList
-import com.example.moviecatalog.model.tv_show.TVShow
-import com.example.moviecatalog.model.tv_show.TVShowList
-import com.example.moviecatalog.retrofit.controllers.MainController
+import com.example.moviecatalog.model.Element
+import com.example.moviecatalog.model.ElementList
+import com.example.moviecatalog.retrofit.MainController
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * This class uses the MainController to perform the calls to themovie.org APIs according to the
+ * users actions
+ */
 class Repository {
 
-    private val mainController = MainController()
+    private val mainController =
+        MainController()
 
-    fun getMovies(): MutableLiveData<List<Movie>> {
+    fun getMovies(): MutableLiveData<List<Element>> {
 
-        val movieList = MutableLiveData<List<Movie>>()
+        val movieList = MutableLiveData<List<Element>>()
 
         makeMovieRetrofitCall(mainController.getMovies(), movieList)
 
         return movieList
     }
 
-    fun searchMovie(name: String): MutableLiveData<List<Movie>> {
+    fun searchMovie(name: String): MutableLiveData<List<Element>> {
 
-        val movieList = MutableLiveData<List<Movie>>()
+        val movieList = MutableLiveData<List<Element>>()
 
         makeMovieRetrofitCall(mainController.searchMovie(name), movieList)
 
         return movieList
     }
 
-    fun getTvShows(): MutableLiveData<List<TVShow>> {
+    fun getTvShows(): MutableLiveData<List<Element>> {
 
-        val movieList = MutableLiveData<List<TVShow>>()
+        val movieList = MutableLiveData<List<Element>>()
 
         makeTvShowRetrofitCall(mainController.getTVShows(), movieList)
 
         return movieList
     }
 
-    fun searchTVShow(name: String): MutableLiveData<List<TVShow>> {
+    fun searchTVShow(name: String): MutableLiveData<List<Element>> {
 
-        val movieList = MutableLiveData<List<TVShow>>()
+        val movieList = MutableLiveData<List<Element>>()
 
         makeTvShowRetrofitCall(mainController.searchTVShow(name), movieList)
 
         return movieList
     }
 
-    private fun makeMovieRetrofitCall(movieCall: Call<MovieList>, movieList: MutableLiveData<List<Movie>>) {
-        movieCall.enqueue(object : Callback<MovieList?> {
-            override fun onResponse(call: Call<MovieList?>, response: Response<MovieList?>) {
+    private fun makeMovieRetrofitCall(movieCall: Call<ElementList>, movieList: MutableLiveData<List<Element>>) {
+        movieCall.enqueue(object : Callback<ElementList?> {
+            override fun onResponse(call: Call<ElementList?>, response: Response<ElementList?>) {
                 if (response.isSuccessful) {
                     movieList.value = response.body()?.list
                 }
             }
 
-            override fun onFailure(call: Call<MovieList?>, t: Throwable) {
+            override fun onFailure(call: Call<ElementList?>, t: Throwable) {
                 t.printStackTrace()
             }
         })
     }
 
-    private fun makeTvShowRetrofitCall(tvShowCall: Call<TVShowList>, tvShowList: MutableLiveData<List<TVShow>>) {
-        tvShowCall.enqueue(object : Callback<TVShowList?> {
-            override fun onResponse(call: Call<TVShowList?>, response: Response<TVShowList?>) {
+    private fun makeTvShowRetrofitCall(tvShowCall: Call<ElementList>, tvShowList: MutableLiveData<List<Element>>) {
+        tvShowCall.enqueue(object : Callback<ElementList?> {
+            override fun onResponse(call: Call<ElementList?>, response: Response<ElementList?>) {
                 if (response.isSuccessful) {
                     tvShowList.value = response.body()?.list
                 }
             }
 
-            override fun onFailure(call: Call<TVShowList?>, t: Throwable) {
+            override fun onFailure(call: Call<ElementList?>, t: Throwable) {
                 t.printStackTrace()
             }
         })

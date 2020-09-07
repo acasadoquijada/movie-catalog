@@ -1,8 +1,7 @@
 package com.example.moviecatalog
 
-import com.example.moviecatalog.model.movie.MovieList
-import com.example.moviecatalog.model.tv_show.TVShowList
-import com.example.moviecatalog.retrofit.controllers.MainController
+import com.example.moviecatalog.model.ElementList
+import com.example.moviecatalog.retrofit.MainController
 import junit.framework.Assert.fail
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,16 +19,17 @@ the code cleaner
 @RunWith(JUnit4::class)
 class RetrofitUnitTest {
 
-    private val mainController = MainController()
+    private val mainController =
+        MainController()
     private val tvShowName = "office"
 
     @Test
     fun searchTVShow_Returns_NotEmptyList() {
 
-        val response: Response<TVShowList> = mainController.searchTVShow(tvShowName).execute()
+        val response: Response<ElementList> = mainController.searchTVShow(tvShowName).execute()
 
         if (response.isSuccessful) {
-            assertTVShowListIsNotEmpty(response.body())
+            assertElementListIsNotEmpty(response.body())
         } else {
             fail("Call to searchTVShow with param ($tvShowName) was unsuccessful")
         }
@@ -37,10 +37,10 @@ class RetrofitUnitTest {
 
     @Test
     fun getTVShows_Returns_NotEmptyList() {
-        val response: Response<TVShowList> = mainController.getTVShows().execute()
+        val response: Response<ElementList> = mainController.getTVShows().execute()
 
         if (response.isSuccessful) {
-            assertTVShowListIsNotEmpty(response.body())
+            assertElementListIsNotEmpty(response.body())
         } else {
             fail("Call to getTVShows was unsuccessful")
         }
@@ -49,10 +49,10 @@ class RetrofitUnitTest {
     @Test
     fun searchMovie_Returns_NotEmptyList() {
 
-        val response: Response<MovieList> = mainController.searchMovie(tvShowName).execute()
+        val response: Response<ElementList> = mainController.searchMovie(tvShowName).execute()
 
         if (response.isSuccessful) {
-            assertMovieListIsNotEmpty(response.body())
+            assertElementListIsNotEmpty(response.body())
         } else {
             fail("Call to movieList with param ($tvShowName) was unsuccessful")
         }
@@ -61,20 +61,16 @@ class RetrofitUnitTest {
     @Test
     fun getMovies_Returns_NotEmptyList() {
 
-        val response: Response<MovieList> = mainController.getMovies().execute()
+        val response: Response<ElementList> = mainController.getMovies().execute()
 
         if (response.isSuccessful) {
-            assertMovieListIsNotEmpty(response.body())
+            assertElementListIsNotEmpty(response.body())
         } else {
             fail("Call to getMovies was unsuccessful")
         }
     }
 
-    private fun assertMovieListIsNotEmpty(movieList: MovieList?) {
-        movieList?.list?.forEach { assert(!it.isEmpty()) }
-    }
-
-    private fun assertTVShowListIsNotEmpty(tvShowList: TVShowList?) {
-        tvShowList?.list?.forEach { assert(!it.isEmpty()) }
+    private fun assertElementListIsNotEmpty(elementList: ElementList?) {
+        elementList?.list?.forEach { assert(!it.isEmpty()) }
     }
 }

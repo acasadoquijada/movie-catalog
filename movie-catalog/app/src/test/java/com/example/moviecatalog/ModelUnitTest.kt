@@ -1,6 +1,6 @@
 package com.example.moviecatalog
 
-import com.example.moviecatalog.model.VisualEntertainment
+import com.example.moviecatalog.model.Element
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -27,34 +27,34 @@ class ModelUnitTest {
 
     private val baseUrl = "https://image.tmdb.org/t/p/"
     private val fixedPosterPath = "jtAI6OJIWLWiRItNSZoWjrsUtmi.jpg" // actual data from a movie
-    private lateinit var visualEntertainment: VisualEntertainment
+    private lateinit var element: Element
 
     @Before
     fun setup() {
-        visualEntertainment = VisualEntertainment()
+        element = Element()
     }
 
     @Test
-    fun visualEntertainmentGetPath_Returns_ActualURL() {
+    fun elementGetPath_Returns_ActualURL() {
 
-        visualEntertainment.posterPath = fixedPosterPath
+        element.posterPath = fixedPosterPath
 
-        assert(visualEntertainment.getPosterPathURL().contains(baseUrl))
+        assert(element.getPosterPathURL().contains(baseUrl))
     }
 
     @Test
-    fun visualEntertainmentIsEmpty_Returns_Empty_When_Expected() {
+    fun elementIsEmpty_Returns_Empty_When_Expected() {
 
-        visualEntertainment.name = "fake name"
-        assert(visualEntertainment.isEmpty())
+        element.name = "fake name"
+        assert(element.isEmpty())
     }
 
     @Test
-    fun visualEntertainmentIsEmpty_Returns_NotEmpty_When_Expected() {
+    fun elementIsEmpty_Returns_NotEmpty_When_Expected() {
 
-        visualEntertainment.id = 12
-        visualEntertainment.name = "fake name"
+        element.id = 12
+        element.name = "fake name"
 
-        assert(!visualEntertainment.isEmpty())
+        assert(!element.isEmpty())
     }
 }

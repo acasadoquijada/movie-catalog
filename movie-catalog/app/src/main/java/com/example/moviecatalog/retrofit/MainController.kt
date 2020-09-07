@@ -1,8 +1,6 @@
-package com.example.moviecatalog.retrofit.controllers
+package com.example.moviecatalog.retrofit
 
-import com.example.moviecatalog.model.movie.MovieList
-import com.example.moviecatalog.model.tv_show.TVShowList
-import com.example.moviecatalog.retrofit.API
+import com.example.moviecatalog.model.ElementList
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -34,19 +32,19 @@ class MainController {
         api = retrofit.create(API::class.java)
     }
 
-    fun searchTVShow(name: String): Call<TVShowList> {
+    fun searchTVShow(name: String): Call<ElementList> {
         return api.searchTVShow(apiKey, name)
     }
 
-    fun getTVShows(): Call<TVShowList> {
-        return api.getTVShows(apiKey)
-    }
-
-    fun searchMovie(name: String): Call<MovieList> {
+    fun searchMovie(name: String): Call<ElementList> {
         return api.searchMovie(apiKey, name)
     }
 
-    fun getMovies(): Call<MovieList> {
+    fun getTVShows(): Call<ElementList> {
+        return api.getTVShows(apiKey)
+    }
+
+    fun getMovies(): Call<ElementList> {
         return api.getMovies(apiKey)
     }
 }
