@@ -2,7 +2,7 @@
 
 ## Setup instructions
 
-In order to compile and install the application in a emulated or physical you need to do as follows:
+In order to compile and install the application in a emulated or physical device you need to do as follows:
 
 1 - Clone the this repository
 
