@@ -27,14 +27,6 @@ class FragmentDetailsTest {
     @get:Rule
     val activityScenarioRule = activityScenarioRule<MainActivity>()
 
-    @Before
-    fun setup() {
-    }
-
-    /**
-     * This test passes if run alone, it seems it's some kind of timing issue.
-     * I would have improved its behavior with more time
-     */
     @Test
     fun infoIsShownCorrectly() {
         // Timing issue, need to click twice. This would have been improved with more time

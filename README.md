@@ -23,7 +23,7 @@ Check for the API Key (v3 auth)
 ```
 
 4 - Once we have an API Key, set it in [retrofit.MainController line 13](https://bitbucket.org/acasadoquijada/movie-catalog/src/b6edb66a806bb12ee4bb6642103b326192d9034f/movie-catalog/app/src/main/java/com/example/moviecatalog/retrofit/MainController.kt#lines-13)
-. During the development of the app an API key as uploaded by mistake. This key has been revoked before making the repository public.
+.
 
 ```
 private val apiKey = "your api key"
@@ -35,6 +35,20 @@ private val apiKey = "your api key"
 
 7 - Now you should be able to use the application
 
+If you find this error running the unit test
+
+```
+running 'moviecatalog in app':
+Command line is to long. Shorten command line for moviecatalog in app or also for Android Junit default configurartion.
+```
+
+Do this to fix it:
+
+```
+Please click on "moviecatalog in app"
+Set shorten commmand line to classpath file and apply
+Rerun unit test, they should run and pass without issues    
+```
 
 ## Style checking
 
@@ -56,6 +70,8 @@ To check the code style the following tools have been used:
 ## Problems found during development and future work
 
 The greatest problem I found was while integrating Room into the picture. I had almost everything working, but due to a "wrong" design decision, the toggle button of the elements in the watchList wasn't updated correctly. Because of that, I had to perform a different approach.
+
+During the development of the app an API key as uploaded by mistake. This key has been revoked before making the repository public.
 
 With more time, I would like to:
 
