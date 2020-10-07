@@ -1,5 +1,7 @@
 # Movie Catalog
 
+This application was developed in three days during an own hackathon.
+
 ## Setup instructions
 
 In order to compile and install the application in a emulated or physical device you need to do as follows:
